@@ -102,7 +102,19 @@ ul{list-style:none}
   display:flex;align-items:center;justify-content:space-between;
   gap:12px;
 }
-.nav-logo{height:38px;width:auto}
+.nav-brand{
+  display:flex;align-items:center;gap:7px;
+  font-size:1.05rem;font-weight:800;color:var(--c-white);
+  letter-spacing:-.2px;white-space:nowrap;line-height:1;
+}
+.nav-brand-icon{
+  width:30px;height:30px;border-radius:8px;
+  background:var(--c-orange);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.nav-brand em{font-style:normal;color:var(--c-orange)}
+.nav-brand span{color:var(--c-muted);font-weight:500;font-size:.9rem}
 .nav-wa{
   display:inline-flex;align-items:center;gap:7px;
   background:var(--c-green);color:#fff;
@@ -366,9 +378,12 @@ height="0" width="0" style="display:none;visibility:hidden" title="GTM"></iframe
 
 <!-- ── Nav ── -->
 <nav class="nav" aria-label="Main navigation">
-  <a href="index.html" aria-label="Goa Trip Packages — home">
-    <img src="images/goa-tour/image.png" alt="Goa Trip Packages" class="nav-logo"
-         width="140" height="40" loading="eager" decoding="async" fetchpriority="high">
+  <a href="index.html" class="nav-brand" aria-label="Goa Trip Packages — home">
+    <div class="nav-brand-icon" aria-hidden="true">
+      <!-- Palm / location pin icon -->
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </div>
+    <div><em>Goa</em> Trip Packages</div>
   </a>
   <a href="https://wa.me/918882305614?text=Hi%2C%20I%20saw%20your%20ad.%20Please%20share%20Goa%20tour%20package%20details!"
      class="nav-wa" target="_blank" rel="noopener noreferrer" aria-label="Book on WhatsApp">
