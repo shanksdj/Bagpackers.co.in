@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /GOATRIP/
+Disallow: /sendemail.php
+Disallow: /sendmail2.php
+Sitemap: https://goatrippackages.in/sitemap.xml
