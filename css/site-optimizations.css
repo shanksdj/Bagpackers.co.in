@@ -1,0 +1,185 @@
+.sticky-cta-wrap {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Disable legacy floating WhatsApp button to prevent overlap */
+.float,
+a.float {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.sticky-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 132px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.sticky-cta-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.sticky-cta-call {
+  background: #f97316;
+  color: #fff;
+}
+
+.sticky-cta-wa {
+  background: #25d366;
+  color: #fff;
+}
+
+.wow:not(.anim-allowed),
+.animated:not(.anim-allowed) {
+  animation: none !important;
+  transition: none !important;
+}
+
+.wow.anim-allowed {
+  animation-duration: 0.45s !important;
+}
+
+/* Reduce layout and paint work on first render */
+.preloader {
+  display: none !important;
+}
+
+/* Above-the-fold stability for hero blocks */
+.banner-section .slide-item,
+.page-banner {
+  min-height: 320px;
+}
+
+@media (max-width: 767px) {
+  .sticky-cta-wrap {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    flex-direction: row;
+  }
+
+  .sticky-cta-btn {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}
+
+
+/* touch-target improvements */
+a, button, .theme-btn, .btn-title { min-height: 44px; min-width: 44px; }
+.navigation > li > a, .theme-btn { padding-top: 12px; padding-bottom: 12px; }
+
+
+/* icon-fallback-fixes */
+.float {
+  position: fixed;
+  right: 18px;
+  bottom: 88px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,.22);
+  z-index: 9998;
+  text-decoration: none;
+}
+.float .my-float {
+  font-style: normal;
+  font-family: Arial, sans-serif !important;
+  font-size: 0 !important;
+  line-height: 1;
+}
+.float .my-float::before {
+  content: "WA";
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+.scroll-to-top {
+  position: fixed;
+  left: 40px;
+  bottom: 60px;
+  width: 70px;
+  height: 70px;
+  color: #757d97;
+  font-size: 24px;
+  line-height: 68px !important;
+  border: 1px solid #384160;
+  text-align: center;
+  z-index: 100;
+  cursor: pointer;
+  background: #061138;
+  border-radius: 50%;
+  display: none; /* Initially hidden, JS will show it */
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.scroll-to-top:hover {
+  color: #ffffff;
+  background: #d5ae82;
+  border-color: #d5ae82;
+}
+
+@media screen and (max-width: 767px) {
+  .scroll-to-top {
+    left: 25px;
+    bottom: 82px; /* Push above mobile buttons */
+    top: auto; /* override any previous top settings to ensure bottom alignment */
+    width: 60px;
+    height: 60px;
+    line-height: 58px !important;
+  }
+  .float {
+    right: 12px;
+    bottom: 82px;
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.scroll-to-top .icon {
+  font-size: 0 !important;
+  line-height: inherit;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.scroll-to-top .icon::before {
+  content: "↑";
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  line-height: inherit; /* inherit the 68px / 58px line-height */
+}
+
+
+/* a11y-touch-targets */
+a, button, .theme-btn, .scroll-to-top, .mobile-nav-toggler { min-height: 44px; min-width: 44px; }
+.navigation > li > a, .theme-btn { padding-top: 12px; padding-bottom: 12px; }
