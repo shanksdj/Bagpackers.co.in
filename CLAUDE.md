@@ -84,3 +84,42 @@ No build step — Vercel serves the repo root as a static site.
 - Facebook Pixel: `1408142280396407`
 - Business phone/WhatsApp: `+918882305614`
 - Contact email: `info@goatrippackages.in`
+
+# Goa Trip Packages Website
+
+## Project Info
+- Static HTML/CSS/JS website for goatrippackages.in
+- Travel business selling Goa tour packages
+- Primary CTA: WhatsApp chat (918882305614)
+- Hosted on: [your hosting - e.g., Hostinger/SiteGround]
+
+## Critical Rules
+- NEVER delete or modify any HTML content/text
+- NEVER change WhatsApp links or phone numbers
+- NEVER remove any images or sections
+- NEVER modify the Google Tag Manager code (GTM-KZBW2ZCW)
+- NEVER change any tracking pixels or analytics code
+- Always show me the diff before saving any file
+- Make one change at a time, test, then move to next
+
+## Tech Stack
+- Plain HTML, CSS, JavaScript (no framework)
+- Images in /images/ folder (mostly .webp format)
+- Google Tag Manager for tracking
+- No build tool or bundler
+
+## Current Issues to Fix
+- Page speed is slow (too many images loading at once)
+- SEO structure needs improvement
+- Canonical URL is wrong
+- Spelling errors in content
+- No lazy loading on images
+- CSS/JS not minified
+
+## Safety Rules for Optimization
+- NEVER modify GTM-KZBW2ZCW or FB Pixel 1408142380396407 code
+- NEVER change WhatsApp number 918882305614 in any link
+- NEVER modify the SEO injection anchor comments
+- NEVER change the async CSS loading pattern (media="print" onload)
+- Always show a summary of changes before applying
+- One task at a time, commit after each
