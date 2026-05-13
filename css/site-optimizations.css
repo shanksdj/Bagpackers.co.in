@@ -1,3 +1,4 @@
+/* ── Sticky CTA buttons (bottom-right) ────────────────────────────────── */
 .sticky-cta-wrap {
   position: fixed;
   right: 16px;
@@ -8,25 +9,19 @@
   gap: 10px;
 }
 
-/* Disable legacy floating WhatsApp button to prevent overlap */
-.float,
-a.float {
-  display: none !important;
-  visibility: hidden !important;
-}
-
 .sticky-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 7px;
   min-width: 132px;
-  padding: 10px 14px;
+  padding: 11px 16px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1;
   text-decoration: none;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
@@ -45,6 +40,68 @@ a.float {
   color: #fff;
 }
 
+/* WhatsApp SVG icon injected via CSS — no HTML change needed */
+.sticky-cta-wa::before {
+  content: '';
+  display: block;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23fff'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z'%2F%3E%3C%2Fsvg%3E") no-repeat center / contain;
+}
+
+/* ── Kill the legacy .float WA button completely ──────────────────────── */
+/* (The re-enable block that was here has been removed — it conflicted) */
+.float,
+a.float,
+.float-whatsapp {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ── Scroll-to-top button ─────────────────────────────────────────────── */
+.scroll-to-top {
+  position: fixed;
+  left: 16px;
+  bottom: 20px;
+  width: 42px;
+  height: 42px;
+  background: #f97316;
+  border: 2px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  z-index: 9998;
+  cursor: pointer;
+  display: none;        /* jQuery fadeIn/fadeOut controls visibility */
+  text-align: center;
+  line-height: 38px;
+  box-shadow: 0 4px 16px rgba(249,115,22,.45);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.scroll-to-top:hover {
+  background: #ea6c0a;
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,.5);
+}
+
+.scroll-to-top .icon {
+  font-size: 0 !important;
+  line-height: inherit;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.scroll-to-top .icon::before {
+  content: "↑";
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  line-height: inherit;
+}
+
+/* ── WOW animation guard ──────────────────────────────────────────────── */
 .wow:not(.anim-allowed),
 .animated:not(.anim-allowed) {
   animation: none !important;
@@ -55,17 +112,15 @@ a.float {
   animation-duration: 0.45s !important;
 }
 
-/* Reduce layout and paint work on first render */
-.preloader {
-  display: none !important;
-}
+/* ── First-render helpers ─────────────────────────────────────────────── */
+.preloader { display: none !important; }
 
-/* Above-the-fold stability for hero blocks */
 .banner-section .slide-item,
 .page-banner {
   min-height: 320px;
 }
 
+/* ── Mobile ───────────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
   .sticky-cta-wrap {
     right: 10px;
@@ -80,106 +135,22 @@ a.float {
     padding: 12px 10px;
     font-size: 13px;
   }
-}
 
-
-/* touch-target improvements */
-a, button, .theme-btn, .btn-title { min-height: 44px; min-width: 44px; }
-.navigation > li > a, .theme-btn { padding-top: 12px; padding-bottom: 12px; }
-
-
-/* icon-fallback-fixes */
-.float {
-  position: fixed;
-  right: 18px;
-  bottom: 88px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25d366;
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 22px rgba(0,0,0,.22);
-  z-index: 9998;
-  text-decoration: none;
-}
-.float .my-float {
-  font-style: normal;
-  font-family: Arial, sans-serif !important;
-  font-size: 0 !important;
-  line-height: 1;
-}
-.float .my-float::before {
-  content: "WA";
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .3px;
-}
-.scroll-to-top {
-  position: fixed;
-  left: 40px;
-  bottom: 60px;
-  width: 70px;
-  height: 70px;
-  color: #757d97;
-  font-size: 24px;
-  line-height: 68px !important;
-  border: 1px solid #384160;
-  text-align: center;
-  z-index: 100;
-  cursor: pointer;
-  background: #061138;
-  border-radius: 50%;
-  display: none; /* Initially hidden, JS will show it */
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-
-.scroll-to-top:hover {
-  color: #ffffff;
-  background: #d5ae82;
-  border-color: #d5ae82;
-}
-
-@media screen and (max-width: 767px) {
   .scroll-to-top {
-    left: 25px;
-    bottom: 82px; /* Push above mobile buttons */
-    top: auto; /* override any previous top settings to ensure bottom alignment */
-    width: 60px;
-    height: 60px;
-    line-height: 58px !important;
-  }
-  .float {
-    right: 12px;
-    bottom: 82px;
-    width: 52px;
-    height: 52px;
+    left: 10px;
+    bottom: 76px;   /* sits above the full-width mobile sticky bar */
+    width: 38px;
+    height: 38px;
+    line-height: 34px;
   }
 }
 
-.scroll-to-top .icon {
-  font-size: 0 !important;
-  line-height: inherit;
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  -ms-transform: rotate(0deg);
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
+/* ── Touch targets ────────────────────────────────────────────────────── */
+a, button, .theme-btn, .scroll-to-top, .mobile-nav-toggler {
+  min-height: 44px;
+  min-width: 44px;
 }
-.scroll-to-top .icon::before {
-  content: "↑";
-  font-family: Arial, sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  color: #fff;
-  line-height: inherit; /* inherit the 68px / 58px line-height */
+.navigation > li > a, .theme-btn {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
-
-
-/* a11y-touch-targets */
-a, button, .theme-btn, .scroll-to-top, .mobile-nav-toggler { min-height: 44px; min-width: 44px; }
-.navigation > li > a, .theme-btn { padding-top: 12px; padding-bottom: 12px; }
