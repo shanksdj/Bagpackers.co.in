@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"c:\\\\Users\\\\Lenovo\\\\OneDrive\\\\Shivaay Travels\\\\09 - Websites & Tech\\\\Website Backups & Assets\\\\Bagpackers.co.in\\\\goa-trip-web\\\\\" | head -30)",
+      "Read(//c/Users/Lenovo/OneDrive/Shivaay Travels/09 - Websites & Tech/Website Backups & Assets/Bagpackers.co.in/**)",
+      "Bash(ls \"/mnt/c/Users/Lenovo/OneDrive/Shivaay Travels/09 - Websites & Tech/Website Backups & Assets/Bagpackers.co.in/goa-trip-web/\" | head -30)",
+      "Read(//mnt/c/Users/Lenovo/OneDrive/Shivaay Travels/09 - Websites & Tech/Website Backups & Assets/Bagpackers.co.in/**)",
+      "Bash(python gen_packages.py)",
+      "Bash(python gen_packages2.py)",
+      "Bash(python -c ' *)",
+      "Bash(del /f \"Goa-things-to-do.html\" \"Scuba-Adventure.html\" \"Water-Sports.html\" \"Party-Cruise.html\" \"Hot-Air-Balloon-Goa.html\" \"contact2.html\" \"Default.html\" \"index - Copy.html\" \"goa-tour-package-landing.html\" \"goa-tour-package-5D-4N.html\" \"goa-tour-package-4D-3N.html\" \"goa-weekend-trip.html\")"
+    ]
+  }
+}
