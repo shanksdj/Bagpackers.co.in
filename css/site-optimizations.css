@@ -154,3 +154,61 @@ a, button, .theme-btn, .scroll-to-top, .mobile-nav-toggler {
   padding-top: 12px;
   padding-bottom: 12px;
 }
+
+/* ── Brand colour token (replaces .t-goa) ─────────────────────────────── */
+.site-logo-text .t-brand { color: #f97316; }
+
+/* ── Circular WhatsApp floating button ────────────────────────────────── */
+.wa-float-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  box-shadow: 0 4px 18px rgba(37,211,102,.55);
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.wa-float-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(37,211,102,.7);
+}
+.wa-float-btn svg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.wa-float-btn::after {
+  content: 'Chat with us on WhatsApp';
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+.wa-float-btn:hover::after { opacity: 1; }
+
+@media (max-width: 767px) {
+  .wa-float-btn {
+    width: 50px;
+    height: 50px;
+    right: 14px;
+    bottom: 86px;
+  }
+  .wa-float-btn svg { width: 26px; height: 26px; }
+  .wa-float-btn::after { display: none; }
+}
